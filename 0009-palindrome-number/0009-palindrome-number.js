@@ -2,13 +2,14 @@
  * @param {number} x
  * @return {boolean}
  */
-var isPalindrome = function(x) {
-    var str = x.toString();
-    var rev　=　str.split("").reverse().join("");
+const isPalindrome = function(x) {
+    const str = x.toString();
+    const reversedStr　=　str.split("").reverse().join("");
   
-    if(rev == str){
-        return true
+    if (reversedStr === str) {
+        return true;
     }
-    return false      
+
+    return false;   
 }
   
