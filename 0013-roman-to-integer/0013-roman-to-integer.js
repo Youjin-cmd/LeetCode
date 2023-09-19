@@ -21,11 +21,7 @@ const romanToInt = function(s) {
     }
     
     for (let j = 0; j < numberInArr.length; j++) {
-        if (!numberInArr[j + 1]) {
-            result += numberInArr[j];
-        }
-        
-        if (numberInArr[j] >=  numberInArr[j + 1]) {
+        if (numberInArr[j] >=  numberInArr[j + 1] || !numberInArr[j + 1]) {
             result += numberInArr[j];
         }
         
