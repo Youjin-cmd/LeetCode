@@ -13,20 +13,15 @@ const romanToInt = function(s) {
         M: 1000,
     };
 
-    const numberInArr = [];
     let result = 0;
-
-    for (let i = 0; i < s.length; i++) {
-        numberInArr.push(romanNumerals[s[i]]);
-    }
     
-    for (let j = 0; j < numberInArr.length; j++) {
-        if (numberInArr[j] >=  numberInArr[j + 1] || !numberInArr[j + 1]) {
-            result += numberInArr[j];
+    for (let i = 0; i < s.length; i++) {
+        if (romanNumerals[s[i]] >=  romanNumerals[s[i + 1]] || !romanNumerals[s[i + 1]]) {
+            result += romanNumerals[s[i]];
         }
         
-        if (numberInArr[j] <  numberInArr[j + 1]) {
-            result -= numberInArr[j];
+        if (romanNumerals[s[i]] <  romanNumerals[s[i + 1]]) {
+            result -= romanNumerals[s[i]];
         }
     }
 
