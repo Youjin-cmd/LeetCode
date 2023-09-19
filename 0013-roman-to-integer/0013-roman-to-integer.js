@@ -13,12 +13,11 @@ const romanToInt = function(s) {
         M: 1000,
     };
 
-    const stringInArr = [...s];
     const numberInArr = [];
     let result = 0;
 
-    for (let i = 0; i < stringInArr.length; i++) {
-        numberInArr.push(romanNumerals[stringInArr[i]]);
+    for (let i = 0; i < s.length; i++) {
+        numberInArr.push(romanNumerals[s[i]]);
     }
     
     for (let j = 0; j < numberInArr.length; j++) {
