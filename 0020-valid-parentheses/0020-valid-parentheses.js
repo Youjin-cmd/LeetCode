@@ -7,8 +7,6 @@ const isValid = function(s) {
     const openings = ["[", "{", "("];
     const closings = ["]", "}", ")"];
 
-    debugger;
-
     if (closings.includes(s[0])) {
         return false;
     }
@@ -20,11 +18,11 @@ const isValid = function(s) {
     for (let i = 0; i < s.length; i++) {
         const current = s[i];
 
-        if (openings.includes(current)) { // 현재 포인터가 오프닝이면
+        if (openings.includes(current)) {
             tempStack.push(current);
         }
 
-        if (closings.includes(current)) { // 현재 포인터가 클로징이면
+        if (closings.includes(current)) {
             if (!tempStack.length) {
                 return false;
             }
