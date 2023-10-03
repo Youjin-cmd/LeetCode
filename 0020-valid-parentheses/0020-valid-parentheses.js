@@ -7,14 +7,6 @@ const isValid = function(s) {
     const openings = ["[", "{", "("];
     const closings = ["]", "}", ")"];
 
-    if (closings.includes(s[0])) {
-        return false;
-    }
-
-    if (s.length <= 1) {
-        return false;
-    }
-
     for (let i = 0; i < s.length; i++) {
         const current = s[i];
 
