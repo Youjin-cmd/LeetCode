@@ -13,15 +13,13 @@ const strStr = function(haystack, needle) {
 
         let p1 = i;
         let p2 = 0;
-        let count = 0;
 
         while (p2 < needle.length && haystack[p1] === needle[p2]) {
             p1++;
             p2++;
-            count++;
        }
         
-        if (needle.length === count) {
+        if (needle.length === p2) {
             result = i;
             break;
         }
