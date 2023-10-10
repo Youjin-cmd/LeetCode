@@ -4,11 +4,28 @@
  * @return {number}
  */
 const strStr = function(haystack, needle) {
-    for (let i = 0; i < haystack.length; i++) {
-        if (haystack.slice(i, needle.length + i).includes(needle)) {
-            return i;
+    let result = -1;
+
+    for (let i = 0; i < haystack.length - needle.length + 1; i++) {
+        if (haystack[i] !== needle[0]) {
+            continue;
+        }
+
+        let p1 = i;
+        let p2 = 0;
+        let count = 0;
+
+        while (p2 < needle.length && haystack[p1] === needle[p2]) {
+            p1++;
+            p2++;
+            count++;
+       }
+        
+        if (needle.length === count) {
+            result = i;
+            break;
         }
     }
 
-    return -1;
+    return result;
 };
