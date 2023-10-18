@@ -34,6 +34,7 @@ const intToRoman = function(num) {
         
         if (romanIntegers[current]) {
             result += romanIntegers[Number(current) * Number(currDigit)];
+
             continue;
         }
         
