@@ -7,9 +7,12 @@ var islandPerimeter = function(grid) {
   let result = 0;
   const visitedCells = new Set();
   
-  function recursive(width, height) {
-    if (width < 0 || width >= grid.length || height < 0 || height >= grid[width].length || grid[width][height] === 0) {
+  function dfs(width, height) {
+    if (width < 0 || width > grid.length - 1 || height < 0 || height > grid[width].length - 1 || grid[width][height] === 0) {
+      // 판을 벗어나 존재하지 않는 칸이거나, 바다(0)일 때
       result++;
+      // 경계선 개수를 증가시킨다
+
       return;
     }
 
@@ -19,16 +22,16 @@ var islandPerimeter = function(grid) {
 
     visitedCells.add(`${width}-${height}`);
 
-    recursive(width - 1, height);
-    recursive(width + 1, height);
-    recursive(width, height - 1);
-    recursive(width, height + 1);
+    dfs(width - 1, height);
+    dfs(width + 1, height);
+    dfs(width, height - 1);
+    dfs(width, height + 1);
   }
 
   for (let width = 0; width < grid.length; width++) {
     for (let height = 0; height < grid[width].length; height++) {
-      if (grid[width][height]) {
-          recursive(width, height);
+      if (grid[width][height] === 1) {
+          dfs(width, height);
 
           break;
       }
