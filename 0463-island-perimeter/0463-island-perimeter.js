@@ -29,6 +29,8 @@ var islandPerimeter = function(grid) {
     for (let height = 0; height < grid[width].length; height++) {
       if (grid[width][height]) {
           recursive(width, height);
+
+          break;
       }
     }
   }
